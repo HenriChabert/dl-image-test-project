@@ -1,0 +1,150 @@
+{
+  "projectKey": "PLUGINTESTDEEPLEARNINGIMAGE",
+  "id": "Recipe_-_Retrain",
+  "type": "step_based",
+  "name": "Recipe - Retrain",
+  "active": false,
+  "versionTag": {
+    "versionNumber": 1,
+    "lastModifiedBy": {
+      "login": "data_scientist_1"
+    },
+    "lastModifiedOn": 1617800873408
+  },
+  "checklists": {
+    "checklists": []
+  },
+  "delayedTriggersBehavior": {
+    "delayWhileRunning": true,
+    "squashDelayedTriggers": true,
+    "suppressTriggersWhileRunning": true
+  },
+  "tags": [],
+  "triggers": [],
+  "reporters": [],
+  "params": {
+    "steps": [
+      {
+        "id": "clear__f_5a9CNyTd_f_FPPsuZ98",
+        "type": "clear_items",
+        "name": "Clear output models",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "clears": [
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "5a9CNyTd",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "FPPsuZ98",
+              "partitionsSpec": ""
+            }
+          ],
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "build_2_true_f_5a9CNyTd_f_FPPsuZ98",
+        "type": "build_flowitem",
+        "name": "Build retrain",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "builds": [
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "5a9CNyTd",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "FPPsuZ98",
+              "partitionsSpec": ""
+            }
+          ],
+          "jobType": "RECURSIVE_FORCED_BUILD",
+          "refreshHiveMetastore": true,
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "comp_metrics_f_5a9CNyTd_f_FPPsuZ98",
+        "type": "compute_metrics",
+        "name": "Metrics to check",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "computes": [
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "5a9CNyTd",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "FPPsuZ98",
+              "partitionsSpec": ""
+            }
+          ],
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "check_false_f_5a9CNyTd_f_FPPsuZ98",
+        "type": "check_dataset",
+        "name": "Checks",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "checks": [
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "5a9CNyTd",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "FPPsuZ98",
+              "partitionsSpec": ""
+            }
+          ],
+          "warningsAsErrors": false,
+          "proceedOnFailure": false
+        }
+      }
+    ]
+  },
+  "automationLocal": false,
+  "customFields": {}
+}

@@ -1,0 +1,64 @@
+{
+  "type": "webapp_deeplearning-image-v2_tensorboard-web-app-v2",
+  "hasLegacyBackendURL": false,
+  "params": {
+    "backendEnabled": true,
+    "enableJavascriptModules": false,
+    "autoStartBackend": false,
+    "hideJSSecurityPanel": false,
+    "envSelection": {
+      "envMode": "INHERIT"
+    },
+    "nbProcesses": 1,
+    "libraries": [
+      "jquery",
+      "dataiku"
+    ],
+    "infra": {
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      },
+      "overrideGlobalK8sExposition": false,
+      "exposition": {
+        "type": "local_process",
+        "params": {}
+      },
+      "scaling": {
+        "initialReplicas": 1,
+        "hpa": false,
+        "hpaTargetCPUPercent": 0,
+        "hpaMetrics": [],
+        "hpaMinPods": 0,
+        "hpaMaxPods": 0,
+        "hpaAnnotations": []
+      },
+      "deploymentModifier": {}
+    },
+    "forceAuthentication": false
+  },
+  "config": {
+    "retrained_model_folder": "yPIfqrOh"
+  },
+  "name": "Test: Resnet Training",
+  "apiKey": "GXFsVZTVHsL0VEvMn28edY7LE6NwsRQc",
+  "versionTag": {
+    "versionNumber": 2,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1615982694339
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1611849216510
+  },
+  "tags": [],
+  "checklists": {
+    "checklists": []
+  },
+  "customFields": {},
+  "isVirtual": false
+}

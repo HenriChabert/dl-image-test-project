@@ -1,0 +1,34 @@
+[
+  {
+    "execSQLLike": false,
+    "localDatasets": [
+      {
+        "datasets": [],
+        "privileges": [
+          "READ_DATA",
+          "READ_METADATA",
+          "READ_SCHEMA"
+        ]
+      }
+    ],
+    "projectPrivileges": {
+      "admin": false,
+      "readProjectContent": false,
+      "writeProjectContent": false,
+      "exportDatasetsData": false,
+      "readDashboards": false,
+      "writeDashboards": false,
+      "moderateDashboards": false,
+      "runScenarios": false,
+      "manageDashboardAuthorizations": false,
+      "manageExposedElements": false,
+      "manageAdditionalDashboardUsers": false,
+      "executeApp": false
+    },
+    "onBehalf": "y0Qye1x",
+    "id": "ToaSA0n2ZYCbWWEu",
+    "key": "GXFsVZTVHsL0VEvMn28edY7LE6NwsRQc",
+    "label": "Key for Web app Test: Resnet Training(y0Qye1x)",
+    "createdOn": 1611849216460
+  }
+]

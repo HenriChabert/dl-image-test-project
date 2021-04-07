@@ -1,0 +1,105 @@
+{
+  "type": "CustomCode_deeplearning-image-retrain-v2",
+  "neverRecomputeExistingPartitions": false,
+  "optionalDependencies": false,
+  "params": {
+    "customConfig": {
+      "random_seed": 1338,
+      "train_ratio": 0.9,
+      "gpu_usage": "all",
+      "gpu_memory": "all",
+      "layer_to_retrain": "last",
+      "layer_to_retrain_n": 2,
+      "model_dropout": 0.5,
+      "model_reg": {
+        "l1": 0.2,
+        "l2": 0.1
+      },
+      "model_optimizer": "adam",
+      "model_learning_rate": 0.001,
+      "batch_size": 10,
+      "nb_epochs": 5,
+      "nb_steps_per_epoch": 5,
+      "nb_validation_steps": 5,
+      "model_custom_params_opti": [],
+      "n_augmentation": 2,
+      "model_custom_params_data_augmentation": [],
+      "data_augmentation": false,
+      "tensorboard": true,
+      "should_use_gpu": false,
+      "model_pooling": "max",
+      "image_width": 197,
+      "image_height": 197,
+      "col_filename": "path",
+      "col_label": "label",
+      "gpu_memory_allocation_mode": "all",
+      "gpu_memory_limit": 100
+    },
+    "containerSelection": {
+      "containerMode": "INHERIT"
+    }
+  },
+  "customMeta": {
+    "kv": {}
+  },
+  "redispatchPartitioning": false,
+  "maxRunningActivities": 0,
+  "variables": {},
+  "dkuProperties": [],
+  "inputs": {
+    "label_dataset": {
+      "items": [
+        {
+          "ref": "labels",
+          "deps": []
+        }
+      ]
+    },
+    "image_folder": {
+      "items": [
+        {
+          "ref": "3ep5yCky",
+          "deps": []
+        }
+      ]
+    },
+    "model_folder": {
+      "items": [
+        {
+          "ref": "qT2WovBb",
+          "deps": []
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "model_output": {
+      "items": [
+        {
+          "ref": "A0kYXw0a",
+          "appendMode": false
+        }
+      ]
+    }
+  },
+  "labels": [],
+  "versionTag": {
+    "versionNumber": 3,
+    "lastModifiedBy": {
+      "login": "data_scientist_1"
+    },
+    "lastModifiedOn": 1617827575606
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "data_scientist_1"
+    },
+    "lastModifiedOn": 1617805474739
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

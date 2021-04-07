@@ -1,0 +1,36 @@
+{
+  "name": "Recipes with cloud connection",
+  "color": "#4B8021",
+  "items": [
+    {
+      "objectId": "classified_with_aws_images",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_classified_with_aws_images",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "xQSNpl9f",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_xQSNpl9f",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "images_classified_with_retrain_aws",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_images_classified_with_retrain_aws",
+      "objectType": "RECIPE"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "Inception Model",
+  "color": "#087ABF",
+  "items": [
+    {
+      "objectId": "classified_images_with_inception",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "extracted_features_inception",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_classified_images_with_inception",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_extracted_features_inception",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "UAVa7zuH",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_UAVa7zuH",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "classified_with_retrain_inception",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_classified_with_retrain_inception",
+      "objectType": "RECIPE"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

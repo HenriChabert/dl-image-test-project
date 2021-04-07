@@ -1,0 +1,44 @@
+{
+  "name": "Xception Model",
+  "color": "#087ABF",
+  "items": [
+    {
+      "objectId": "classified_images_with_xception",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "classified_with_retrain_xception",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "q2IF495N",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_classified_images_with_xception",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "extracted_features_xception",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_extracted_features_xception",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_q2IF495N",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_classified_with_retrain_xception",
+      "objectType": "RECIPE"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

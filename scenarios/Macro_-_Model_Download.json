@@ -1,0 +1,241 @@
+{
+  "projectKey": "PLUGINTESTDEEPLEARNINGIMAGE",
+  "id": "Macro_-_Model_Download",
+  "type": "step_based",
+  "name": "Macro - Model Download",
+  "active": false,
+  "versionTag": {
+    "versionNumber": 31,
+    "lastModifiedBy": {
+      "login": "data_scientist_1"
+    },
+    "lastModifiedOn": 1617728034196
+  },
+  "checklists": {
+    "checklists": []
+  },
+  "delayedTriggersBehavior": {
+    "delayWhileRunning": true,
+    "squashDelayedTriggers": true,
+    "suppressTriggersWhileRunning": true
+  },
+  "tags": [],
+  "triggers": [],
+  "reporters": [],
+  "params": {
+    "steps": [
+      {
+        "id": "clear__f_MsZM3mcZ_f_Xyqh4w7e_f_kPorwzTf_f_nfjFYbY4",
+        "type": "clear_items",
+        "name": "Clear output folders",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "clears": [
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "MsZM3mcZ",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "Xyqh4w7e",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "kPorwzTf",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "nfjFYbY4",
+              "partitionsSpec": ""
+            }
+          ],
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "runmacro_pyrunnable_deeplearning-image-v2_download-models-v2",
+        "type": "runnable",
+        "name": "Download Resenet",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "runnableType": "pyrunnable_deeplearning-image-v2_download-models-v2",
+          "config": {
+            "model_choice": "resnet::imagenet",
+            "output_managed_folder": "kPorwzTf"
+          },
+          "adminConfig": {},
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "runmacro_pyrunnable_deeplearning-image-v2_download-models-v2",
+        "type": "runnable",
+        "name": "Download VGG",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "runnableType": "pyrunnable_deeplearning-image-v2_download-models-v2",
+          "config": {
+            "model_choice": "vgg16::imagenet",
+            "output_managed_folder": "Xyqh4w7e"
+          },
+          "adminConfig": {},
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "runmacro_pyrunnable_deeplearning-image-v2_download-models-v2",
+        "type": "runnable",
+        "name": "Download Xception",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "runnableType": "pyrunnable_deeplearning-image-v2_download-models-v2",
+          "config": {
+            "model_choice": "xception::imagenet",
+            "output_managed_folder": "nfjFYbY4"
+          },
+          "adminConfig": {},
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "runmacro_pyrunnable_deeplearning-image-v2_download-models-v2",
+        "type": "runnable",
+        "name": "Download Inception",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "runnableType": "pyrunnable_deeplearning-image-v2_download-models-v2",
+          "config": {
+            "model_choice": "inception_v3::imagenet",
+            "output_managed_folder": "MsZM3mcZ"
+          },
+          "adminConfig": {},
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "comp_metrics_f_Xyqh4w7e_f_nfjFYbY4_f_MsZM3mcZ_f_kPorwzTf",
+        "type": "compute_metrics",
+        "name": "Step #6",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "computes": [
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "Xyqh4w7e",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "nfjFYbY4",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "MsZM3mcZ",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "kPorwzTf",
+              "partitionsSpec": ""
+            }
+          ],
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "check_false_f_MsZM3mcZ_f_Xyqh4w7e_f_kPorwzTf_f_nfjFYbY4",
+        "type": "check_dataset",
+        "name": "Run model checks",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "checks": [
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "MsZM3mcZ",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "Xyqh4w7e",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "kPorwzTf",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "nfjFYbY4",
+              "partitionsSpec": ""
+            }
+          ],
+          "warningsAsErrors": false,
+          "proceedOnFailure": false
+        }
+      }
+    ]
+  },
+  "automationLocal": false,
+  "customFields": {}
+}

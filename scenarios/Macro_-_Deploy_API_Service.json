@@ -1,0 +1,199 @@
+{
+  "projectKey": "PLUGINTESTDEEPLEARNINGIMAGE",
+  "id": "Macro_-_Deploy_API_Service",
+  "type": "step_based",
+  "name": "Macro - Deploy API Service",
+  "active": false,
+  "versionTag": {
+    "versionNumber": 27,
+    "lastModifiedBy": {
+      "login": "data_scientist_1"
+    },
+    "lastModifiedOn": 1617727744320
+  },
+  "checklists": {
+    "checklists": []
+  },
+  "delayedTriggersBehavior": {
+    "delayWhileRunning": true,
+    "squashDelayedTriggers": true,
+    "suppressTriggersWhileRunning": true
+  },
+  "tags": [],
+  "triggers": [],
+  "reporters": [],
+  "params": {
+    "steps": [
+      {
+        "id": "clear__f_kPorwzTf",
+        "type": "clear_items",
+        "name": "Clear model folder",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "clears": [
+            {
+              "type": "MANAGED_FOLDER",
+              "itemId": "kPorwzTf",
+              "partitionsSpec": ""
+            }
+          ],
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "runmacro_pyrunnable_deeplearning-image-v2_download-models-v2",
+        "type": "runnable",
+        "name": "Download model",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "runnableType": "pyrunnable_deeplearning-image-v2_download-models-v2",
+          "config": {
+            "model_choice": "resnet::imagenet",
+            "output_managed_folder": "kPorwzTf"
+          },
+          "adminConfig": {},
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "runmacro_pyrunnable_deeplearning-image-v2_create-api-service-v2",
+        "type": "runnable",
+        "name": "Create Endpoint",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "runnableType": "pyrunnable_deeplearning-image-v2_create-api-service-v2",
+          "config": {
+            "code_env_options": "existing",
+            "python_interpreter": "PYTHON36",
+            "max_nb_labels": 2,
+            "min_threshold": 0.5,
+            "model_folder_id": "kPorwzTf",
+            "service_id": "test-api-endpoint",
+            "endpoint_id": "classify-with-existing-codenv",
+            "code_env_name": "dl-image-api-designer"
+          },
+          "adminConfig": {},
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "custom_python_49ndZG+U3DEyBfJf+7xmNw",
+        "type": "custom_python",
+        "name": "Check Creation 1",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "script": "import dataiku\n\nCLASSIFY_WITH_EXISTING \u003d \"classify-with-existing-codenv\"\n\nEXISTING_CODEENV_NAME \u003d \"dl-image-api-designer\"\n\nproject \u003d dataiku.api_client().get_default_project()\nendpoints \u003d project.get_api_service(\u0027test-api-endpoint\u0027).get_settings().get_raw()[\"endpoints\"]\n\nendpoint_existing_l \u003d list(filter(lambda x: x[\u0027id\u0027] \u003d\u003d CLASSIFY_WITH_EXISTING, endpoints))\n\nassert len(endpoint_existing_l) \u003e 0, \"Endpoint creation with existing codenv failed\"\n\nendpoint_existing \u003d endpoint_existing_l[0]\n\nassert endpoint_existing[\u0027envSelection\u0027][\u0027envName\u0027] \u003d\u003d EXISTING_CODEENV_NAME, \"Wrong code env for existing\"",
+          "envSelection": {
+            "envMode": "INHERIT"
+          },
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "custom_python_0J/5CixGs6770k5apH5R8A",
+        "type": "custom_python",
+        "name": "Delete code env",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "script": "import dataiku\n\nclient \u003d dataiku.api_client()\ncode_envs_list \u003d client.list_code_envs()\n\nNEW_CODEENV_NAME \u003d \u0027dl-codenv-test\u0027\n\nif any([x[\u0027envName\u0027] \u003d\u003d NEW_CODEENV_NAME for x in code_envs_list]):\n    client.get_code_env(\u0027PYTHON\u0027, NEW_CODEENV_NAME).delete()\n\ncode_envs_list \u003d client.list_code_envs()\nassert not any([x[\u0027envName\u0027] \u003d\u003d NEW_CODEENV_NAME for x in code_envs_list]), \"Problem deleting code env\"",
+          "envSelection": {
+            "envMode": "INHERIT"
+          },
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "runmacro_pyrunnable_deeplearning-image-v2_create-api-service-v2_1",
+        "type": "runnable",
+        "name": "Step #2",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "runnableType": "pyrunnable_deeplearning-image-v2_create-api-service-v2",
+          "config": {
+            "code_env_options": "new",
+            "python_interpreter": "PYTHON36",
+            "max_nb_labels": 2,
+            "min_threshold": 0.5,
+            "endpoint_id": "classify-with-new-codenv",
+            "service_id": "test-api-endpoint",
+            "new_code_env_name": "dl-codenv-test",
+            "model_folder_id": "kPorwzTf"
+          },
+          "adminConfig": {},
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "custom_python_vX/n69ZZSrHUDbkFu30BcA",
+        "type": "custom_python",
+        "name": "Check Creation 2",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "script": "import dataiku\n\nCLASSIFY_WITH_NEW \u003d \"classify-with-new-codenv\"\n\nNEW_CODEENV_NAME \u003d \"dl-codenv-test\"\n\nproject \u003d dataiku.api_client().get_default_project()\nendpoints \u003d project.get_api_service(\u0027test-api-endpoint\u0027).get_settings().get_raw()[\"endpoints\"]\n\nendpoint_new_l \u003d list(filter(lambda x: x[\u0027id\u0027] \u003d\u003d CLASSIFY_WITH_NEW, endpoints))\n\nassert len(endpoint_new_l) \u003e 0, \"Endpoint creation with new codenv failed\"\n\nendpoint_new \u003d endpoint_new_l[0]\n\nassert endpoint_new[\u0027envSelection\u0027][\u0027envName\u0027] \u003d\u003d NEW_CODEENV_NAME, \"Wrong code env for new\"",
+          "envSelection": {
+            "envMode": "INHERIT"
+          },
+          "proceedOnFailure": false
+        }
+      }
+    ]
+  },
+  "automationLocal": false,
+  "customFields": {}
+}

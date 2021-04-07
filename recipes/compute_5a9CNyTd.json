@@ -1,0 +1,109 @@
+{
+  "type": "CustomCode_deeplearning-image-retrain-v2",
+  "neverRecomputeExistingPartitions": false,
+  "optionalDependencies": false,
+  "params": {
+    "customConfig": {
+      "random_seed": 1338,
+      "train_ratio": 0.9,
+      "gpu_usage": "all",
+      "gpu_memory": "all",
+      "layer_to_retrain": "last",
+      "layer_to_retrain_n": 2,
+      "model_dropout": 0,
+      "model_reg": {
+        "l1": 0,
+        "l2": 0
+      },
+      "model_optimizer": "adam",
+      "model_learning_rate": 0.099,
+      "batch_size": 10,
+      "nb_epochs": 10,
+      "nb_steps_per_epoch": 10,
+      "nb_validation_steps": 5,
+      "model_custom_params_opti": [],
+      "n_augmentation": 5,
+      "model_custom_params_data_augmentation": [
+        {
+          "name": "horizontal_flip",
+          "value": "True"
+        },
+        {
+          "name": "zoom_range",
+          "value": "0.1"
+        }
+      ],
+      "data_augmentation": true,
+      "tensorboard": true,
+      "should_use_gpu": false,
+      "model_pooling": "max",
+      "image_width": 197,
+      "image_height": 197,
+      "col_filename": "path",
+      "col_label": "label"
+    },
+    "containerSelection": {
+      "containerMode": "INHERIT"
+    }
+  },
+  "customMeta": {
+    "kv": {}
+  },
+  "redispatchPartitioning": false,
+  "maxRunningActivities": 0,
+  "inputs": {
+    "label_dataset": {
+      "items": [
+        {
+          "ref": "labels",
+          "deps": []
+        }
+      ]
+    },
+    "image_folder": {
+      "items": [
+        {
+          "ref": "3ep5yCky",
+          "deps": []
+        }
+      ]
+    },
+    "model_folder": {
+      "items": [
+        {
+          "ref": "kPorwzTf",
+          "deps": []
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "model_output": {
+      "items": [
+        {
+          "ref": "5a9CNyTd",
+          "appendMode": false
+        }
+      ]
+    }
+  },
+  "versionTag": {
+    "versionNumber": 3,
+    "lastModifiedBy": {
+      "login": "user1"
+    },
+    "lastModifiedOn": 1611657013619
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1611581662343
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

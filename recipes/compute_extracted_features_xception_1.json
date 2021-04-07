@@ -1,0 +1,73 @@
+{
+  "type": "CustomCode_deeplearning-image-extract-v2",
+  "neverRecomputeExistingPartitions": false,
+  "optionalDependencies": false,
+  "params": {
+    "customConfig": {
+      "gpu_usage": "all",
+      "gpu_memory": "all",
+      "should_use_gpu": false,
+      "extract_layer_index": -2,
+      "gpu_memory_allocation_mode": "memory_growth",
+      "gpu_memory_limit": 100
+    },
+    "containerSelection": {
+      "containerMode": "INHERIT"
+    }
+  },
+  "customMeta": {
+    "kv": {}
+  },
+  "redispatchPartitioning": false,
+  "maxRunningActivities": 0,
+  "variables": {},
+  "dkuProperties": [],
+  "inputs": {
+    "image_folder": {
+      "items": [
+        {
+          "ref": "zGBkJeG0",
+          "deps": []
+        }
+      ]
+    },
+    "model_folder": {
+      "items": [
+        {
+          "ref": "jJZRQeGc",
+          "deps": []
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "feature_dataset": {
+      "items": [
+        {
+          "ref": "extracted_features_inception_resnet",
+          "appendMode": false
+        }
+      ]
+    }
+  },
+  "labels": [],
+  "versionTag": {
+    "versionNumber": 3,
+    "lastModifiedBy": {
+      "login": "data_scientist_1"
+    },
+    "lastModifiedOn": 1617826203388
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "data_scientist_1"
+    },
+    "lastModifiedOn": 1617805707845
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

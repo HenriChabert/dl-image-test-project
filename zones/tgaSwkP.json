@@ -1,0 +1,44 @@
+{
+  "name": "MobileNet Model",
+  "color": "#31439C",
+  "items": [
+    {
+      "objectId": "extracted_features_mobilenet",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "classified_images_with_mobilenet",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "classified_with_retrain_mobilenet",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_classified_with_retrain_vgg_1",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_classified_images_with_vgg_1",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_extracted_features_vgg_1",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_jmzRuMqF_1",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "CjWDmckM",
+      "objectType": "MANAGED_FOLDER"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

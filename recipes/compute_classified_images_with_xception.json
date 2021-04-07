@@ -1,0 +1,69 @@
+{
+  "type": "CustomCode_deeplearning-image-score-v2",
+  "neverRecomputeExistingPartitions": false,
+  "optionalDependencies": false,
+  "params": {
+    "customConfig": {
+      "max_nb_labels": 2,
+      "min_threshold": 0.5,
+      "gpu_usage": "all",
+      "gpu_memory": "all",
+      "should_use_gpu": false
+    },
+    "containerSelection": {
+      "containerMode": "INHERIT"
+    }
+  },
+  "customMeta": {
+    "kv": {}
+  },
+  "redispatchPartitioning": false,
+  "maxRunningActivities": 0,
+  "inputs": {
+    "image_folder": {
+      "items": [
+        {
+          "ref": "zGBkJeG0",
+          "deps": []
+        }
+      ]
+    },
+    "model_folder": {
+      "items": [
+        {
+          "ref": "nfjFYbY4",
+          "deps": []
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "scored_dataset": {
+      "items": [
+        {
+          "ref": "classified_images_with_xception",
+          "appendMode": false
+        }
+      ]
+    }
+  },
+  "versionTag": {
+    "versionNumber": 1,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1611239581488
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1611239569549
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

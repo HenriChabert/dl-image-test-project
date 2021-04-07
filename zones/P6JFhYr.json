@@ -1,0 +1,28 @@
+{
+  "name": "Cloud Input Images",
+  "color": "#F9BE40",
+  "items": [
+    {
+      "objectId": "I7j6srT5",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_I7j6srT5",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "pnGi4DWx",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_pnGi4DWx",
+      "objectType": "RECIPE"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

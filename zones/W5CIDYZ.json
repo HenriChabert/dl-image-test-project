@@ -1,0 +1,44 @@
+{
+  "name": "NasNetLarge Model",
+  "color": "#31439C",
+  "items": [
+    {
+      "objectId": "aVixFr6M",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "classified_images_with_nasnet_large",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "classified_with_retrain_nasnet_large",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "extracted_features_nasnet_large",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_extracted_features_2",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_classified_with_retrain_model_1",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_classified_images_2",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_yPIfqrOh_1",
+      "objectType": "RECIPE"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

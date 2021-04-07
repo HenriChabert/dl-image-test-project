@@ -1,0 +1,52 @@
+{
+  "name": "Classify",
+  "color": "#C54F00",
+  "items": [
+    {
+      "objectId": "empty_folder_scoring",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_empty_folder_scoring",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "classify_no_images",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_classify_no_images",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "classified_partially_valid_files",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_classified_partially_valid_files",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "classify_with_nominal",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_classified_images_1",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "classify_with_a_threshold",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_classify_no_images_1",
+      "objectType": "RECIPE"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

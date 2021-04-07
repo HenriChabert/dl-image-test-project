@@ -1,0 +1,40 @@
+{
+  "name": "Input Images",
+  "color": "#C82423",
+  "items": [
+    {
+      "objectId": "labels",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_labels",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "3ep5yCky",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "zGBkJeG0",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "jsxNs3Ii",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "bPFbic5s",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "Xrd0cfYf",
+      "objectType": "MANAGED_FOLDER"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

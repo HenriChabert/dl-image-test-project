@@ -1,0 +1,150 @@
+{
+  "projectKey": "PLUGINTESTDEEPLEARNINGIMAGE",
+  "id": "Recipe_-_Extract",
+  "type": "step_based",
+  "name": "Recipe - Extract",
+  "active": false,
+  "versionTag": {
+    "versionNumber": 3,
+    "lastModifiedBy": {
+      "login": "data_scientist_1"
+    },
+    "lastModifiedOn": 1617801148038
+  },
+  "checklists": {
+    "checklists": []
+  },
+  "delayedTriggersBehavior": {
+    "delayWhileRunning": true,
+    "squashDelayedTriggers": true,
+    "suppressTriggersWhileRunning": true
+  },
+  "tags": [],
+  "triggers": [],
+  "reporters": [],
+  "params": {
+    "steps": [
+      {
+        "id": "clear__d_extract_nominal_d_extract_with_other_layer",
+        "type": "clear_items",
+        "name": "Clear all",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "clears": [
+            {
+              "type": "DATASET",
+              "itemId": "extract_nominal",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "extract_with_other_layer",
+              "partitionsSpec": ""
+            }
+          ],
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "build_0_true_d_extracted_features",
+        "type": "build_flowitem",
+        "name": "Run recipe",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "builds": [
+            {
+              "type": "DATASET",
+              "itemId": "extract_nominal",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "extract_with_other_layer",
+              "partitionsSpec": ""
+            }
+          ],
+          "jobType": "RECURSIVE_FORCED_BUILD",
+          "refreshHiveMetastore": true,
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "comp_metrics_d_extracted_features_inception_d_extracted_features_resnet_d_extracted_features_vgg_d_extracted_features_xception",
+        "type": "compute_metrics",
+        "name": "Compute check metrics",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "computes": [
+            {
+              "type": "DATASET",
+              "itemId": "extract_with_other_layer",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "extract_nominal",
+              "partitionsSpec": ""
+            }
+          ],
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "check_false_d_extracted_features",
+        "type": "check_dataset",
+        "name": "Check recipe",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "checks": [
+            {
+              "type": "DATASET",
+              "itemId": "extract_nominal",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "classify_with_nominal_retrain",
+              "partitionsSpec": ""
+            }
+          ],
+          "warningsAsErrors": false,
+          "proceedOnFailure": false
+        }
+      }
+    ]
+  },
+  "automationLocal": false,
+  "customFields": {}
+}

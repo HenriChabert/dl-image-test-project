@@ -1,0 +1,44 @@
+{
+  "name": "NasNetMobile Model",
+  "color": "#465A64",
+  "items": [
+    {
+      "objectId": "aLtCxVFE",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "extracted_features_nasnet_mobile",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "classified_with_retrain_nasnet_mobile",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "classified_images_with_nasnet_mobile",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_classified_images_with_inception_2",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_classified_with_retrain_inception_2",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_extracted_features_inception_2",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_UAVa7zuH_2",
+      "objectType": "RECIPE"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

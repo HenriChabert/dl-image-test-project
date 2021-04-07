@@ -1,0 +1,44 @@
+{
+  "name": "VGG Model",
+  "color": "#087ABF",
+  "items": [
+    {
+      "objectId": "classified_images_with_vgg",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_classified_images_with_vgg",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "extracted_features_vgg",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_extracted_features_vgg",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "jmzRuMqF",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_jmzRuMqF",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "classified_with_retrain_vgg",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_classified_with_retrain_vgg",
+      "objectType": "RECIPE"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

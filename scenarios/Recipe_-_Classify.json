@@ -1,0 +1,210 @@
+{
+  "projectKey": "PLUGINTESTDEEPLEARNINGIMAGE",
+  "id": "Recipe_-_Classify",
+  "type": "step_based",
+  "name": "Recipe - Classify",
+  "active": false,
+  "versionTag": {
+    "versionNumber": 4,
+    "lastModifiedBy": {
+      "login": "data_scientist_1"
+    },
+    "lastModifiedOn": 1617801014655
+  },
+  "checklists": {
+    "checklists": []
+  },
+  "delayedTriggersBehavior": {
+    "delayWhileRunning": true,
+    "squashDelayedTriggers": true,
+    "suppressTriggersWhileRunning": true
+  },
+  "tags": [],
+  "triggers": [],
+  "reporters": [],
+  "params": {
+    "steps": [
+      {
+        "id": "clear__d_classify_with_nominal_d_classify_with_a_threshold_d_empty_folder_scoring_d_classified_partially_valid_files_d_classify_no_images",
+        "type": "clear_items",
+        "name": "Step #4",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "clears": [
+            {
+              "type": "DATASET",
+              "itemId": "classify_with_nominal",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "classify_with_a_threshold",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "empty_folder_scoring",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "classified_partially_valid_files",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "classify_no_images",
+              "partitionsSpec": ""
+            }
+          ],
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "build_2_true_d_classified_partially_valid_files_d_empty_folder_scoring_d_classify_no_images",
+        "type": "build_flowitem",
+        "name": "Edge case datasets",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "builds": [
+            {
+              "type": "DATASET",
+              "itemId": "classified_partially_valid_files",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "empty_folder_scoring",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "classify_no_images",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "classify_with_nominal",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "classify_with_a_threshold",
+              "partitionsSpec": ""
+            }
+          ],
+          "jobType": "RECURSIVE_FORCED_BUILD",
+          "refreshHiveMetastore": true,
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "comp_metrics_d_empty_folder_scoring_d_classify_no_images_d_classified_partially_valid_files",
+        "type": "compute_metrics",
+        "name": "Step #2",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "computes": [
+            {
+              "type": "DATASET",
+              "itemId": "empty_folder_scoring",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "classify_no_images",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "classified_partially_valid_files",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "classify_with_a_threshold",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "classify_with_nominal",
+              "partitionsSpec": ""
+            }
+          ],
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "check_false_d_empty_folder_scoring_d_classify_no_images_d_classified_partially_valid_files",
+        "type": "check_dataset",
+        "name": "Step #3",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "checks": [
+            {
+              "type": "DATASET",
+              "itemId": "empty_folder_scoring",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "classify_no_images",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "classified_partially_valid_files",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "classify_with_a_threshold",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "classify_with_nominal",
+              "partitionsSpec": ""
+            }
+          ],
+          "warningsAsErrors": false,
+          "proceedOnFailure": false
+        }
+      }
+    ]
+  },
+  "automationLocal": false,
+  "customFields": {}
+}

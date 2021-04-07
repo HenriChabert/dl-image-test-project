@@ -1,0 +1,48 @@
+{
+  "name": "Origin Models",
+  "color": "#4B8021",
+  "items": [
+    {
+      "objectId": "MsZM3mcZ",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "Xyqh4w7e",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "kPorwzTf",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "nfjFYbY4",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "qe1cxRNy",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "qT2WovBb",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "jJZRQeGc",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "JuQ6iXGm",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "JcjlC1ia",
+      "objectType": "MANAGED_FOLDER"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

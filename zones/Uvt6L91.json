@@ -1,0 +1,28 @@
+{
+  "name": "Extract",
+  "color": "#087ABF",
+  "items": [
+    {
+      "objectId": "compute_extracted_features_1",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "extract_nominal",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "extract_with_other_layer",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_extract_with_other_layer",
+      "objectType": "RECIPE"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "name": "Retrain",
+  "color": "#8C2DA7",
+  "items": [
+    {
+      "objectId": "5a9CNyTd",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_5a9CNyTd",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "test_augm_classification",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_test_augm_classification",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_5a9CNyTd_1",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "FPPsuZ98",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "classify_images_for_test_custom_params",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_classify_images_for_test_custom_params",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_5a9CNyTd_1_1",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "s7ZOWWvk",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_test_augm_classification_1",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "classify_with_nominal_retrain",
+      "objectType": "DATASET"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}
